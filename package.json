@@ -1,5 +1,5 @@
 {
-  "name": "decorator",
+  "name": "@cat1989/decorator",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/cat1989/decorator/issues"
   },
-  "homepage": "https://github.com/cat1989/decorator#readme"
+  "homepage": "https://github.com/cat1989/decorator#readme",
+  "dependencies": {}
 }
