@@ -1,69 +1,15 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.throttle = exports.debounce = exports.delay = void 0;
-/**
- * delaying a function
- * @param f decorated function
- * @param ms delayed by milliseconds
- */
-function delay(f, ms) {
-    if (ms === void 0) { ms = 1000; }
-    return function () {
-        var _this = this;
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        setTimeout(function () {
-            f.apply(_this, args);
-        }, ms);
-    };
-}
-exports.delay = delay;
-function debounce(func, ms) {
-    if (ms === void 0) { ms = 1000; }
-    var timeout = 0;
-    return function () {
-        var _this = this;
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-        timeout = window.setTimeout(function () {
-            func.apply(_this, args);
-        }, ms);
-    };
-}
-exports.debounce = debounce;
-function throttle(func, ms) {
-    if (ms === void 0) { ms = 1000; }
-    var isThrottled = false;
-    var savedThis = null;
-    var savedArgs = null;
-    var wrapper = function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        if (isThrottled) {
-            savedThis = this;
-            savedArgs = args;
-            return;
-        }
-        isThrottled = true;
-        func.apply(this, args);
-        setTimeout(function () {
-            isThrottled = false;
-            if (savedArgs) {
-                wrapper.apply(savedThis, savedArgs);
-                savedThis = null;
-                savedArgs = null;
-            }
-        }, ms);
-    };
-    return wrapper;
-}
-exports.throttle = throttle;
+__exportStar(require("./delay"), exports);
+__exportStar(require("./debounce"), exports);
+__exportStar(require("./throttle"), exports);
