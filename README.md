@@ -1,34 +1,34 @@
-## Decorator
+## 装饰器
 
-```javascript
-function greeting() {
-	console.log('Hello world!');
+提供了一些常用的装饰器函数。
+
+### 安装
+
+```shell
+npm install @cat1989/decorator
+```
+
+### 示例
+
+```vue
+<template>
+	<div>
+		<button
+			type="button"
+			@click="click"
+		>></button>
+	</div>
+</template>
+
+<script>
+import { debounce } from '@cat1989/decorator'
+
+export default {
+	methods: {
+		click: debounce(function() {
+			console.log('you click me!')
+		}),
+	},
 }
-
-const ms = 1000;
+</script>
 ```
-
-* Delaying decorator
-
-```javascript
-const wrapper = delay(greeting, ms);
-
-wrapper();
-```
-
-* Debounce decorator
-
-```javascript
-const wrapper = debounce(greeting, ms);
-
-wrapper();
-```
-
-* Throttle decorator
-
-```javascript
-const wrapper = throttle(greeting, ms);
-
-wrapper();
-```
-
